@@ -12,7 +12,6 @@ export default function Page() {
     <div>
       <button
         onClick={() => dispatch({ type: "RESET" })}
-        // className="fixed top-4 left-4 w-6 h-6 rounded-full bg-white text-black text-lg font-bold active:scale-95"
         className="fixed top-4 left-4 w-6 h-6 rounded-full bg-white text-black font-bold flex items-center justify-center text-lg shadow-lg active:scale-95 transition"
       >
         ↺

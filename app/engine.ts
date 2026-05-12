@@ -48,6 +48,18 @@ export function slateReducer(state: Slate, action: SlateAction): Slate {
         project: action.project,
       };
 
+    case "SET_SEGMENT":
+      return {
+        ...state,
+        segment: action.segment,
+      };
+
+    case "SET_CAMERA":
+      return {
+        ...state,
+        camera: action.camera,
+      };
+
     case "RESET":
       return {
         ...initialSlate,

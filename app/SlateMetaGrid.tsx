@@ -1,11 +1,26 @@
-import { Slate } from "./Slated.type";
+import { Dispatch } from "react";
+import { EditableText } from "./EditableText";
+import { Slate, SlateAction } from "./Slated.type";
 
-export default function SlateMetaGrid({ slate }: { slate: Slate }) {
+export default function SlateMetaGrid({
+  slate,
+  dispatch,
+}: {
+  slate: Slate;
+  dispatch: Dispatch<SlateAction>;
+}) {
   return (
     <div className="grid grid-cols-2 gap-4 text-sm">
       <div className="border border-white/20 rounded-lg p-3">
         <div className="text-white/50 text-xs">SEGMENT</div>
-        <div className="font-semibold mt-1">{slate.segment}</div>
+        <EditableText
+          className="font-semibold mt-1"
+          name="segment"
+          value={slate.segment}
+          onChange={(value) =>
+            dispatch({ type: "SET_SEGMENT", segment: value })
+          }
+        />
       </div>
 
       <div className="border border-white/20 rounded-lg p-3">
@@ -15,7 +30,14 @@ export default function SlateMetaGrid({ slate }: { slate: Slate }) {
 
       <div className="border border-white/20 rounded-lg p-3">
         <div className="text-white/50 text-xs">CAMERA</div>
-        <div className="font-semibold mt-1">{slate.camera ?? "—"}</div>
+        <EditableText
+          className="font-semibold mt-1"
+          name="camera"
+          value={slate.camera || ''}
+          onChange={(value) =>
+            dispatch({ type: "SET_CAMERA", camera: value })
+          }
+        />
       </div>
 
       <div className="border border-white/20 rounded-lg p-3">

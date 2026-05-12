@@ -21,4 +21,6 @@ export type SlateAction =
   | { type: "ADD_NOTE"; note: string }
   | { type: "SET_PROJECT"; project: string }
   | { type: "RESET" }
-  | { type: "TIMESTAMP"; now: number };
+  | { type: "TIMESTAMP"; now: number }
+  | { type: "SET_SEGMENT"; segment: string }
+  | { type: "SET_CAMERA"; camera: string }

@@ -1,28 +1,29 @@
 import { useEffect, useMemo, useState } from "react";
+import { EditableText } from "./EditableText";
 
 export default function SlateHeader({
   project,
   isRolling,
   onProjectChange,
-  onRolling
+  onRolling,
 }: {
   project: string;
   isRolling: boolean;
   onProjectChange: (value: string) => void;
   onRolling: (now: number) => void;
 }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [value, setValue] = useState(project);
+  // const [isEditing, setIsEditing] = useState(false);
+  // const [value, setValue] = useState(project);
   const [now, setNow] = useState(() => Date.now());
 
-  function commit() {
-    onProjectChange(value.trim() || "UNTITLED");
-    setIsEditing(false);
-  }
+  // function commit() {
+  //   onProjectChange(value.trim() || "UNTITLED");
+  //   setIsEditing(false);
+  // }
 
   useEffect(() => {
     if (isRolling) {
-      onRolling(now)
+      onRolling(now);
       return;
     }
 
@@ -34,15 +35,16 @@ export default function SlateHeader({
   }, [isRolling, now, onRolling]);
 
   const { date, time } = useMemo(() => {
-    const timestamp = new Date(now)
+    const timestamp = new Date(now);
     const d = new Date(now).toISOString().slice(0, 10);
     const t = timestamp.toLocaleTimeString();
-    return { date: d, time: t }
+    return { date: d, time: t };
   }, [now]);
 
   return (
     <div className="bg-white text-black px-4 py-3 flex justify-between items-center gap-2">
-      <div className="flex-1">
+      <EditableText name="project" value={project} onChange={onProjectChange} />
+      {/* <div className="flex-1">
         {isEditing ? (
           <input
             name="project"
@@ -67,9 +69,17 @@ export default function SlateHeader({
             {project}
           </div>
         )}
+      </div> */}
+      <div
+        className={`text-md ${isRolling ? "font-bold" : "italic opacity-70"}`}
+      >
+        {date}
       </div>
-      <div className={`text-md ${isRolling ? 'font-bold' : 'italic opacity-70'}`}>{date}</div>
-      <div className={`text-md ${isRolling ? 'font-bold' : 'italic opacity-70'}`}>{time}</div>
+      <div
+        className={`text-md ${isRolling ? "font-bold" : "italic opacity-70"}`}
+      >
+        {time}
+      </div>
     </div>
   );
 }
