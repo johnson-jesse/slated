@@ -10,7 +10,10 @@ export default function Controls({
   onNextTake: () => void;
 }) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur border-t border-white/10">
+    <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur">
+      <div className="text-center text-sm font-semibold uppercase tracking-wide text-white/80 mb-1">
+        YouTube Clapperboard (Slate)
+      </div>
       <div className="max-w-md mx-auto flex gap-3">
         <button
           onClick={onRoll}

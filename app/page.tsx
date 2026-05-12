@@ -16,6 +16,14 @@ export default function Page() {
       >
         ↺
       </button>
+      <button
+        onClick={() => {
+          window.location.href = "mailto:info@polylucent.com";
+        }}
+        className="fixed top-3 right-3 bg-white/10 text-white z-[9999] flex items-center justify-center text-xs hover:bg-white/20 active:scale-95 transition"
+      >
+        info@polylucent.com
+      </button>
       <SlateCard slate={slate} dispatch={dispatch} />
 
       <Controls

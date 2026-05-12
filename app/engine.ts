@@ -8,7 +8,7 @@ export const initialSlate: Slate = {
   duration: null,
   timestamp: 0,
   notes: [],
-  camera: "Selfie",
+  camera: "LUMIX S1H",
 };
 
 export function slateReducer(state: Slate, action: SlateAction): Slate {
