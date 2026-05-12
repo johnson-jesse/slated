@@ -1,4 +1,4 @@
-🎬 Slated
+🎬 Slated [slated-snowy.vercel.app](https://slated-snowy.vercel.app)
 
 A mobile-first digital clapperboard for YouTube creators and video production workflows.
 
